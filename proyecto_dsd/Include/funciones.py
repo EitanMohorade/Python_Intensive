@@ -10,6 +10,8 @@ def contar_valor(lista, numero):
         if item == numero:
             contador = contador + 1
     return contador
+def contar_valorVer2(lista, numero):
+    return lista.count(numero)
 '''
 Una función que al pasarle una lista de cadenas y una cadena
 , nos devuelva cuantas veces se repite la cadena en la lista.
@@ -22,6 +24,8 @@ def contar_cadena(lista, cadena):
         if item == cadena:
             contador = contador + 1
     return contador
+def contar_cadenaVer2(lista, cadena):
+    return lista.count(cadena)
 '''
 También agregaremos una función calcular_edad
 '''
@@ -29,4 +33,10 @@ También agregaremos una función calcular_edad
 def calcular_edad(fecha_nacimiento):
     fecha_nacimiento = datetime.datetime.strptime(fecha_nacimiento, "%d-%m-%Y")
     edad = datetime.datetime.now().year - fecha_nacimiento.year
+    return edad
+
+def calcular_edadVer2(fecha_nacimiento):
+    fecha_nacimiento = datetime.datetime.strptime(fecha_nacimiento, "%d-%m-%Y")
+    hoy = datetime.datetime.now()
+    edad = hoy.year - fecha_nacimiento.year - ((hoy.month, hoy.day) < (fecha_nacimiento.month, fecha_nacimiento.day))
     return edad
