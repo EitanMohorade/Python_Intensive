@@ -16,7 +16,12 @@ tachos_xcuadra = respuestas["Cuantos tachos de basura hay en su cuadra?"]
 
 #graficos.grafico_comun(tachos_xcuadra, "Respuesta", "Frecuencia", "Cantidad de tachos de basura por cuadra")
 
-datos = email.usuario_contrasenia(path_txt)
-print(datos)
+destinatarios = []
 
-#email.enviar_mail()
+for  destino in respuestas["Email"]:
+    if pd.notna(destino):
+        destinatarios.append(destino)
+
+datos = email.usuario_contrasenia(path_txt)
+
+email.enviar_mail(datos[0], datos[1], "prueba asunto", "preguba mensaje", destinatarios)

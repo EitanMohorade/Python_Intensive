@@ -7,11 +7,9 @@ import yagmail
 '''
 #puse contrasenia sin enie por las dudas
 def usuario_contrasenia(ruta):
-    datos = []
-    archivo = open(ruta, 'r')
-    datos.append(archivo.read())
-    archivo.close()
-    return datos
+    with open(ruta, 'r') as archivo:
+        return archivo.readlines()
+
 
 '''
     Una función que se llame: enviar_mail. Esta función 
